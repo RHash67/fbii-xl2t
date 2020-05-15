@@ -11,4 +11,5 @@ I considered using optoisolators for signal interfacing, but the alarm system is
 I would eventually like to make a permanent circuit using SMT components and housing the interface in an enclosure of some sort.  I wouldn’t need a display (would instead rely on the GUI for this purpose), so I might also be able to use a smaller microprocessor board.
 
 5/15/2020
+
 For the final circuit I think I will use a "proper" level converter chip to get the signals from 12V to 5V.  Maybe a MAX232.  I used the LM7301 because that's what I have readily available.
