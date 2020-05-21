@@ -10,6 +10,6 @@ I considered using optoisolators for signal interfacing, but the alarm system is
 
 I would eventually like to make a permanent circuit using SMT components and housing the interface in an enclosure of some sort.  I wouldn’t need a display (would instead rely on the GUI for this purpose), so I might also be able to use a smaller microprocessor board.
 
-5/15/2020
+5/21/2020
 
-For the final circuit I think I will use a "proper" level converter chip to get the signals from 12V to 5V.  Maybe a MAX232.  I used the LM7301 because that's what I have readily available.
+The serial tx/rx pins will be used for communication with a Raspberry Pi.  I have decided that it is easier to develop a web-based server app on a RPi than it is with an Arduino.  The Arduino is better suited for signal processing.  Since the RPi uses 3.3V signal interfacing, I will need to use 3.3V type Arduino and modify the circuit accordingly.
