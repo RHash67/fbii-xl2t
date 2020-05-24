@@ -1,0 +1,29 @@
+########################################
+# Syntax Coloring Map For XL2T Interface
+########################################
+
+########################################
+# Datatypes (KEYWORD1)
+########################################
+
+XL2T_Interface	KEYWORD1
+
+########################################
+# Methods and Functions (KEYWORD2)
+########################################
+
+readAllStatus	KEYWORD2
+readStatus	KEYWORD2
+readBuzzer	KEYWORD2
+readReadyLED	KEYWORD2
+readInstantLED	KEYWORD2
+readStayLED	KEYWORD2
+readArmLED	KEYWORD2
+readACLED	KEYWORD2
+readZoneLED	KEYWORD2
+sendKey	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
