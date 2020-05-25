@@ -14,4 +14,4 @@ The serial tx/rx pins will be used for communication with a Raspberry Pi.  I hav
 
 5/23/2020
 
-Modified the circuit and arduino code to use NPN type transistors instead of rail-to-rail op amps.  NPN transistors are less expensive, and easier to connect.
+Modified the circuit and arduino code to use NPN type transistors instead of rail-to-rail op amps.  NPN transistors are less expensive, and easier to connect.  I had to modify my original code when I did this, since the signals to the arduino are now inverted (i.e. when the clock/data signal is high, the transistors turn on and pulls the incoming arduino signal low).
