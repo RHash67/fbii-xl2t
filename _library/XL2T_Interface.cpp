@@ -77,6 +77,9 @@ uint32_t XL2T_Interface::readAllStatus()
     _pulselvl = digitalRead(_clkpin);  // this means we are before start of a data packet
     if (_pulselvl == 1) {
       _pulsezerolen = micros() - _tmptime;
+      if (_pulsezerolen > 3300) {
+        _pulsezerolen = 0;  // handler for micros() rollover.  Basically throw away packet if rollover occurs
+      }
     }
     else {
       _pulsezerolen = 0;
@@ -293,6 +296,9 @@ void XL2T_Interface::sendKey(uint8_t key)
       _pulselvl = digitalRead(_clkpin);  // this means we are before start of data packets
       if (_pulselvl == 1) {
         _pulsezerolen = micros() - _tmptime;
+        if (_pulsezerolen > 3300) {
+          _pulsezerolen = 0;  // handler for micros() rollover.  Basically throw away packet if rollover occurs
+        }
       }
       else {
         _pulsezerolen = 0;
