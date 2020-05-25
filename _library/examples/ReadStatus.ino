@@ -11,10 +11,14 @@ During interface testing only the 1st 2 bytes seem to be affected by alarm event
 
 XL2T_Interface XL2T;  /* creates a class instance XL2T with default pin assignments.
 Default is Pin A1: Clock, Pin A0: Data, and Pin A2: Shunt.
-To create a class instance with custom pin assignments, include the pins in
-parentheses.  e.g.  XL2T_Interface XL2T(4, 5, 6); assigns Pin 4: Clock, Pin 5: Data,
-and Pin 6: Shunt.
+To create a class instance with custom pin assignments, include the pins for clock, data,
+and shunt in parentheses.
 */
+
+XL2T_Interface XL2TA(4, 5, 6);  /* example creation of another class instance XL2TA using 
+custom pin assignments as noted above.  Pin 4: clock, Pin 5: data, Pin 6: shunt.
+*/
+
 uint16_t data16 = 0;
 uint32_t data32 = 0;
 
