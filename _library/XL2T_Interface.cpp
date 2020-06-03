@@ -62,9 +62,6 @@ uint32_t XL2T_Interface::readAllStatus()
   _datapacket = 0;
   _pulsezerolen = 0;  // time of pulse length at 0 clock level
   _pulsecount = 0;  // counter for number of pulses
-  for (int i = 0; i <= 33; i++) {  // make sure alarmarray is cleared
-    _alarmarray[i] = 0;
-  }
   
   _pulselvl = digitalRead(_clkpin);
   
@@ -103,19 +100,19 @@ uint32_t XL2T_Interface::readAllStatus()
     
     _signallvl = digitalRead(_datapin);
     _signallvl = _signallvl ^ 1;  // bitwise xor to invert value
-    _alarmarray[_pulsecount] = _signallvl;  // note:  _alarmarray[1] is actually the start pulse.  Can throw away
+    if (_signallvl == 1) {  // add bit from left end since LSB gets sent first
+      _bitadd = 0x80000000;
+    }
+    else {
+      _bitadd = 0;
+    }
+    _datapacket = _datapacket >> 1;
+    _datapacket = _datapacket + _bitadd;
 
     while (_pulselvl == 0) {   // wait for low clock pulse
       _pulselvl = digitalRead(_clkpin);
     }
   }
-
-    for (int i = 1; i < 34; i++) {
-      _datapacket = _datapacket >> 1;
-      if (_alarmarray[i] == 1) {
-        _datapacket = _datapacket + 0x80000000;  // load bits from left end, and shift right
-      }  // it's OK to throw away 1st bit stored - this is just the start bit
-    }
 
   return _datapacket;  // returns full (32-bit) alarm status data
 }
