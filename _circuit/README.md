@@ -14,4 +14,10 @@ The serial tx/rx pins will be used for communication with a Raspberry Pi.  I hav
 
 5/23/2020
 
-Modified the circuit and arduino code to use NPN type transistors instead of rail-to-rail op amps.  NPN transistors are less expensive, and easier to connect.  I had to modify my original code when I did this, since the signals to the arduino are now inverted (i.e. when the clock/data signal is high, the transistors turn on and pulls the incoming arduino signal low).
+Modified the circuit and arduino code to use NPN type transistors instead of rail-to-rail op amps.  NPN transistors are less expensive, and easier to connect..  I had to modify my original code when I did this, since the signals to the arduino are now inverted (i.e. when the clock/data signal is high, the transistors turn on and pulls the incoming arduino signal low).
+
+6/2/2020
+
+In my experiments with developing a web-based interface using a Raspberry Pi, I discovered that a python program running on the RPi is fast enough to capture the data waveform and send keypresses to the alarm system.  Therefore, I will not be using an Arduino as an interface - the RPi will handle both the data capture/send and the web interface.  The circuit is basically the same - the clock, data, and shunt wires would just connect to the RPi GPIO pins instead of an Arduino.  Also, the serial connection would not be needed.
+
+Using an Arduino might be suitable for developing a (less expensive) local interface to the alarm system.
