@@ -1,6 +1,6 @@
 ## FBII XL-2T Alarm Interface Circuit
 
-The alarm system keypad connection consists of 4 wires – ground, data, clock, and +15VDC.  A 2A switch-mode voltage regulator on the +15VDC line will be used to step the voltage down to 5VDC to feed the Arduino and the Raspberry Pi.  During testing I found that the keypad connector has enough capacity to power an arduino and a RPi Model B via the voltage regulator.  The advantage of using the keypad power to feed the interface is that the system will continue to operate upon loss of AC power via the alarm system's battery.  I am not sure if an RPi 3 or 4 can be used - as I understand it the power consumption of these is a lot greater.
+The alarm system keypad connection consists of 4 wires – ground, data, clock, and +15VDC.  A 2A switch-mode voltage regulator on the +15VDC line will be used to step the voltage down to 5VDC to feed the Arduino and the Raspberry Pi.  During testing I found that the keypad connector has enough capacity to power an arduino and a RPi Model B via the voltage regulator.  A Raspberry Pi Zero W can also be used - this is what I will be using since it has a built-in wifi interface.  The advantage of using the keypad power to feed the interface is that the system will continue to operate upon loss of AC power via the alarm system's battery.  I am not sure if an RPi 3 or 4 can be used - as I understand it the power consumption of these is a lot greater.
 
 You can use any small-signal type NPN transistors for the circuit.  Make sure the voltage rating is at least 20V.
 
