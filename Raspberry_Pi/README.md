@@ -38,8 +38,7 @@ the first line would be:
 export EMAIL_USER=johndoe@mysite.com
 
 You will need to enter your email server site in the mail settings area of the app.py file.  You may also have to change
-the security settings (port, TLS, etc) in the mail_settings area in the app.py file to suit your particular email account
-server.
+the security settings (port, TLS, etc) to suit your particular email account server.
 
 After changing the .bashrc file, you will need to reboot the Raspberry Pi to activate the variables.
 
