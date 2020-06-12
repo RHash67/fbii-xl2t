@@ -67,5 +67,5 @@ On another device, you should be able to see the web interface via the IP addres
 example, if your Raspberry Pi's IP is 192.168.1.20, type in "192.168.1.20:5000" in your web browser address bar.  You may
 need to set port forwarding in your router.  You should be greeted with the interface login page.  Enter the username and
 password (which you set in the "XL2T" environment variables), and that should bring you to the alarm interface screen.  Note
-that the user name is case-sensitive.
+that the user name and password are case-sensitive.
 
