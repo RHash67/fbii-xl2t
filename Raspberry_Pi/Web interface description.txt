@@ -1,0 +1,8 @@
+A login screen will appear when visiting the website.  User name and password are case-sensitive.
+
+Upon logging onto the website, a screen will appear which simulates an FBII XL4600SM keypad.  The indicators correspond
+to the keypad status LEDs.  Pressing the keypad buttons will send the corresponding keypress to the alarm system.
+
+If the alarm system goes into alarm, the "SYSTEM ALARM" indicator will light, and an email alert will be sent to the designated
+recipient.  Two emails are sent for redundancy.  Cellphone text message alerts are possible by using the appropriate
+cell carrier email-to-text format.
