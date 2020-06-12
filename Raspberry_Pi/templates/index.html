@@ -1,0 +1,461 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>XL-2T Keypad Interface</title>
+    <script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+            // Use a "/test" namespace.
+            // An application can open a connection on multiple namespaces, and
+            // Socket.IO will multiplex all those connections on a single
+            // physical channel. If you don't care about multiple channels, you
+            // can set the namespace to an empty string.
+            namespace = '/test';
+
+            // Connect to the Socket.IO server.
+            // The connection URL has the following format, relative to the current page:
+            //     http[s]://<domain>:<port>[/<namespace>]
+            var socket = io(namespace);
+
+            // Event handler for new connections.
+            // The callback function is invoked when a connection with the
+            // server is established.
+            socket.on('connect', function() {
+                // socket.emit('my_event', {data: 'I\'m connected!'});
+            });
+
+            // Event handler for server sent data.
+            // The callback function is invoked whenever the server emits data
+            // to the client. The data is then displayed in the "Received"
+            // section of the page.
+            socket.on('my_response', function(msg, cb) {
+                // $('#log').append('<br>' + $('<div/>').text('Received #' + msg.count + ': ' + msg.data).html());
+                // if (cb)
+                //     cb();
+                let root = document.documentElement;
+                root.style.setProperty('--alarmcolor', msg.alarm);
+                root.style.setProperty('--armcolor', msg.arm);
+                root.style.setProperty('--staycolor', msg.stay);
+                root.style.setProperty('--instantcolor', msg.instant);
+                root.style.setProperty('--accolor', msg.ac);
+                root.style.setProperty('--readycolor', msg.ready);
+                root.style.setProperty('--zone1color', msg.z1);
+                root.style.setProperty('--zone2color', msg.z2);
+                root.style.setProperty('--zone3color', msg.z3);
+                root.style.setProperty('--zone4color', msg.z4);
+                root.style.setProperty('--zone5color', msg.z5);
+                root.style.setProperty('--zone6color', msg.z6);
+            });
+
+
+            $('form#send0').submit(function(event) {
+                socket.emit('send_key', {data: '0'});
+                return false;
+            });
+            $('form#send1').submit(function(event) {
+                socket.emit('send_key', {data: '1'});
+                return false;
+            });
+            $('form#send2').submit(function(event) {
+                socket.emit('send_key', {data: '2'});
+                return false;
+            });
+
+            $('form#send3').submit(function(event) {
+                socket.emit('send_key', {data: '3'});
+                return false;
+            });
+
+            $('form#send4').submit(function(event) {
+                socket.emit('send_key', {data: '4'});
+                return false;
+            });
+
+            $('form#send5').submit(function(event) {
+                socket.emit('send_key', {data: '5'});
+                return false;
+            });
+
+            $('form#send6').submit(function(event) {
+                socket.emit('send_key', {data: '6'});
+                return false;
+            });
+
+            $('form#send7').submit(function(event) {
+                socket.emit('send_key', {data: '7'});
+                return false;
+            });
+
+            $('form#send8').submit(function(event) {
+                socket.emit('send_key', {data: '8'});
+                return false;
+            });
+
+            $('form#send9').submit(function(event) {
+                socket.emit('send_key', {data: '9'});
+                return false;
+            });
+
+            $('form#sendstar').submit(function(event) {
+                socket.emit('send_key', {data: ':'});
+                return false;
+            });
+
+            $('form#sendnum').submit(function(event) {
+                socket.emit('send_key', {data: ';'});
+                return false;
+            });
+
+            $('form#sendstay').submit(function(event) {
+                socket.emit('send_key', {data: '<'});
+                return false;
+            });
+
+            $('form#sendinstant').submit(function(event) {
+                socket.emit('send_key', {data: '='});
+                return false;
+            });
+
+            $('form#sendbypass').submit(function(event) {
+                socket.emit('send_key', {data: '>'});
+                return false;
+            });
+
+            $('form#sendcode').submit(function(event) {
+                socket.emit('send_key', {data: '?'});
+                return false;
+            });
+
+            $('form#disconnect').submit(function(event) {
+                socket.emit('disconnect_request');
+                return false;
+            });
+        });
+    </script>
+
+<style>
+
+:root {
+  --alarmcolor: #000000;
+  --armcolor: #000000;
+  --staycolor: #000000;
+  --instantcolor: #000000;
+  --accolor: #000000;
+  --readycolor: #000000;
+  --zone1color: #000000;
+  --zone2color: #000000;
+  --zone3color: #000000;
+  --zone4color: #000000;
+  --zone5color: #000000;
+  --zone6color: #000000;
+}
+
+rect.raw {
+  fill:#FF0000;
+  stroke-width:5;
+  stroke:#000000;
+}
+
+rect.armled {
+  fill: var(--armcolor);
+  stroke-width:5;
+  stroke:#000000;
+}
+
+rect.stayled {
+  fill: var(--staycolor);
+  stroke-width:5;
+  stroke:#000000;
+}
+
+rect.instantled {
+  fill: var(--instantcolor);
+  stroke-width:5;
+  stroke:#000000;
+}
+
+rect.acled {
+  fill: var(--accolor);
+  stroke-width:5;
+  stroke:#000000;
+}
+
+rect.readyled {
+  fill: var(--readycolor);
+  stroke-width:5;
+  stroke:#000000;
+}
+
+rect.zone1led {
+  fill: var(--zone1color);
+  stroke-width:5;
+  stroke:#000000;
+}
+
+rect.zone2led {
+  fill: var(--zone2color);
+  stroke-width:5;
+  stroke:#000000;
+}
+
+rect.zone3led {
+  fill: var(--zone3color);
+  stroke-width:5;
+  stroke:#000000;
+}
+
+rect.zone4led {
+  fill: var(--zone4color);
+  stroke-width:5;
+  stroke:#000000;
+}
+
+rect.zone5led {
+  fill: var(--zone5color);
+  stroke-width:5;
+  stroke:#000000;
+}
+
+rect.zone6led {
+  fill: var(--zone6color);
+  stroke-width:5;
+  stroke:#000000;
+}
+
+circle.raw {
+  fill: #FF0000;
+  stroke-width:5;
+  stroke:#000000;
+}
+
+circle.alarmled {
+  fill: var(--alarmcolor);
+  stroke-width:5;
+  stroke:#000000;
+}
+
+.al-led {
+  position: absolute;
+  left: 190px;
+  top: -5px;
+}
+
+.rt-led {
+  position: absolute;
+  left: 150px;
+  top: 0px;
+}
+
+.col2 {
+  position: absolute;
+  left: 80px;
+  top: 0px;
+}
+
+.col3 {
+  position: absolute;
+  left: 160px;
+  top: 0px;
+}
+
+.big-col2 {
+  position: absolute;
+  left: 130px;
+  top: 0px;
+}
+  
+.button1 {
+  background-color: #0055FF;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-family: Arial;
+  padding: 5px;
+  width: 60px;
+}
+
+.button2 {
+  background-color: #0055FF;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  font-size: 15px;
+  font-family: Arial;
+  padding: 10px;
+  width: 90px;
+}
+
+</style>
+</head>
+
+<body>
+    <h1>XL-2T KEYPAD</h1>
+
+    <div id="L-alarm" style="position: relative">
+    <text style="font-size:22px">SYSTEM ALARM</text>
+        <div class="al-led"><svg width="33" height="33">
+        <circle cx="16" cy="15" r="12" class="alarmled" /></svg></div>
+    </div>
+
+    <p></p>
+
+    <div id="L-arm" style="position: relative">
+    <svg width="20" height="20">
+        <rect width="20" height="20" class="armled" /></svg>
+    <text> &nbsp &nbsp ARM</text>
+      <div id="L-z1" class="rt-led">
+      <svg width="20" height="20">
+          <rect width="20" height="20" class="zone1led" /></svg>
+      <text> &nbsp &nbsp ZONE 1</text>
+      </div>
+    </div>
+
+    <div id="L-stay" style="position: relative">
+    <svg width="20" height="20">
+        <rect width="20" height="20" class="stayled" /></svg>
+    <text> &nbsp &nbsp STAY</text>
+      <div id="L-z2" class="rt-led">
+      <svg width="20" height="20">
+          <rect width="20" height="20" class="zone2led" /></svg>
+      <text> &nbsp &nbsp ZONE 2</text>
+      </div>
+    </div>
+
+    <div id="L-instant" style="position: relative">
+    <svg width="20" height="20">
+        <rect width="20" height="20" class="instantled" /></svg>
+    <text> &nbsp &nbsp INSTANT</text>
+      <div id="L-z3" class="rt-led">
+      <svg width="20" height="20">
+          <rect width="20" height="20" class="zone3led" /></svg>
+      <text> &nbsp &nbsp ZONE 3</text>
+      </div>
+    </div>
+
+    <div id="L-ac" style="position: relative">
+    <svg width="20" height="20">
+        <rect width="20" height="20" class="acled" /></svg>
+    <text> &nbsp &nbsp AC/LB</text>
+      <div id="L-z4" class="rt-led">
+      <svg width="20" height="20">
+          <rect width="20" height="20" class="zone4led" /></svg>
+      <text> &nbsp &nbsp ZONE 4</text>
+      </div>
+    </div>
+
+    <div id="L-ready" style="position: relative">
+    <svg width="20" height="20">
+        <rect width="20" height="20" class="readyled" /></svg>
+    <text> &nbsp &nbsp READY</text>
+      <div id="L-z5" class="rt-led">
+      <svg width="20" height="20">
+          <rect width="20" height="20" class="zone5led" /></svg>
+      <text> &nbsp &nbsp ZONE 5</text>
+      </div>
+    </div>
+ 
+    <div id="L-blank" style="position: relative">
+      <div id="L-z6" class="rt-led">
+      <svg width="20" height="20">
+          <rect width="20" height="20" class="zone6led" /></svg>
+      <text> &nbsp &nbsp ZONE 6</text>
+      </div>
+    </div>
+
+    <p></p>
+
+    <div id="keypad-buttons" style="position: relative;">
+
+      <div id="r1-c1" style="position: relative; top: 20px;">
+      <form id="send1" method="POST" action="#">
+      <button class="button1" type="submit" name="one" value="1">1</button>
+      </form>
+        <div id="r1-c2" class="col2">
+        <form id="send2" method="POST" action="#">
+        <button class="button1" type="submit" name="two" value="2">2</button>
+        </form>
+        </div>
+        <div id="r1-c3" class="col3">
+        <form id="send3" method="POST" action="#">
+        <button class="button1" type="submit" name="three" value="3">3</button>
+        </form>
+        </div>
+      </div>
+
+      <div id="r2-c1" style="position: relative; top: 35px;">
+      <form id="send4" method="POST" action="#">
+      <button class="button1" type="submit" id="four" value="4">4</button>
+      </form>
+        <div id="r2-c2" class="col2">
+        <form id="send5" method="POST" action="#">
+        <button class="button1" type="submit" id="five" value="5">5</button>
+        </form>
+        </div>
+        <div id="r2-c3" class="col3">
+        <form id="send6" method="POST" action="#">
+        <button class="button1" type="submit" id="six" value="6">6</button>
+        </form>
+        </div>
+      </div>
+
+      <div id="r3-c1" style="position: relative; top: 50px;">
+      <form id="send7" method="POST" action="#">
+      <button class="button1" type="submit" id="seven" value="7">7</button>
+      </form>
+        <div id="r3-c2" class="col2">
+        <form id="send8" method="POST" action="#">
+        <button class="button1" type="submit" id="eight" value="8">8</button>
+        </form>
+        </div>
+        <div id="r3-c3" class="col3">
+        <form id="send9" method="POST" action="#">
+        <button class="button1" type="submit" id="nine" value="9">9</button>
+        </form>
+        </div>
+      </div>
+
+      <div id="r4-c1" style="position: relative; top: 65px;">
+      <form id="sendstar" method="POST" action="#">
+      <button class="button1" type="submit" id="star" value=":">*</button>
+      </form>
+        <div id="r4-c2" class="col2">
+        <form id="send0" method="POST" action="#">
+        <button class="button1" type="submit" name="zero" value="0">0</button>
+        </form>
+        </div>
+        <div id="r4-c3" class="col3">
+        <form id="sendnum" method="POST" action="#">
+        <button class="button1" type="submit" id="num" value=";">#</button>
+        </form>
+        </div>
+      </div>
+
+      <div id="r5-c1" style="position: relative; top: 80px;">
+      <form id="sendstay" method="POST" action="#">
+      <button class="button2" type="submit" id="stay" value="<">STAY</button>
+      </form>
+        <div id="r5-c2" class="big-col2">
+        <form id="sendinstant" method="POST" action="#">
+        <button class="button2" type="submit" id="instant" value="=">INSTANT</button>
+        </form>
+        </div>
+      </div>
+
+      <div id="r6-c1" style="position: relative; top: 95px;">
+      <form id="sendbypass" method="POST" action="#">
+      <button class="button2" type="submit" id="bypass" value=">">BYPASS</button>
+      </form>
+        <div id="r6-c2" class="big-col2">
+        <form id="sendcode" method="POST" action="#">
+        <button class="button2" type="submit" id="code" value="?">CODE</button>
+        </form>
+        </div>
+      </div>
+
+  </div>
+
+</body>
+</html>
+
