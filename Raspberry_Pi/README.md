@@ -8,16 +8,13 @@ You should make a subfolder in your root directory and put the app.py file in th
 Put the "index.html" and "login.html" files in a "templates" subfolder.  Put the "style.css" file in a "static"
 subfolder.  So your directory tree should look like this (in this example the root subfolder is called "web-server"):
 
-/web-server
-   |
-   app.py
-   /templates
-      |
-      index.html
-      login.html
-   /static
-      |
-      style.css
+web-server
+- app.py
+- templates
+  - index.html
+  - login.html
+- static
+  - style.css
      
 I have retained the directory structure in this repository for clarity.
 
