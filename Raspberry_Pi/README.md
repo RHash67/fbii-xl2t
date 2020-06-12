@@ -25,15 +25,15 @@ code.  I did this so if you copy the app.py code or share it with someone, your 
 be included with the code.  You'll need to set the environment variables in the .bashrc file which the app.py references.
 To do this, edit the .bashrc file in your root directory, and add the following lines:
 
-export EMAIL_USER=*youremailusername*  (this is the email account UN that the alarm notification will originate from)
+export EMAIL_USER=*youremailusername*  (this is the email account user name that the alarm notification will originate from)
 
-export EMAIL_PASSWORD=*youremailpassword*  (and email account password)
+export EMAIL_PASSWORD=*youremailpassword*
 
-export EMAIL_ADDRESS=*emailsendaddress* (this is the email address that alarm notification will be sent to)
+export EMAIL_ADDRESS=*emailsendaddress* (this is the email address that the alarm notification will be sent to)
 
-export XL2T_USER=*webusername*
+export XL2T_USER=*webusername* (the user name for the web interface login.  Case sensitive)
 
-export XL2T_PW=*webpassword*
+export XL2T_PW=*webpassword* (the password for the web interface login.  Case sensitive)
 
 Replace the italicized text with your information.  For example, if your email account user name is "johndoe@mysite.com",
 the first line would be:
