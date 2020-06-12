@@ -10,6 +10,8 @@ The bit values of the various alarm status signals, along with their correspondi
 
 It appears that the keypad LED lights correspond to individual bits within the packet – so I should be able to monitor the alarm status by masking these bits.
 
+Note: the alarm status values do not cover all possible status modes of the system.  The listed values are just the only modes I tested.
+
 ### Keypad Signal Values
 
 The hex values of the keypad button presses are shown in the “Keypad send values.pdf” file.  There is no apparent bit pattern between different key presses.  I suppose the system designers did this for signal security.
