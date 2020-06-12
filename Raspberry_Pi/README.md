@@ -4,7 +4,7 @@ I am using a Raspberry Pi Zero W for the web interface, as it is small, power ef
 web interface program/files assumes that an arduino is used as the hardware interface to the alarm system, and that a
 serial connection is used from the arduino to the Raspberry Pi.
 
-This python file (app.py) is adapted from the example code from the online Flask documentation.
+The python file (app.py) is adapted from the example code from the online Flask documentation.
 
 You should make a subfolder in your root directory and put the app.py file in there.
 Put the "index.html" and "login.html" files in a "templates" subfolder.  Put the "style.css" file in a "static"
