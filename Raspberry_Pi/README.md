@@ -2,7 +2,7 @@
 
 I am using a Raspberry Pi Zero W for the web interface, as it is small, power efficient, and has built-in wifi.  This
 web interface program/files assumes that an arduino is used as the hardware interface to the alarm system, and that a
-serial connection is used from the arduino to the Raspberry Pi.
+serial connection is used from the arduino to the Raspberry Pi.  Refer to the arduino and circuit folders for more information.
 
 The python file (app.py) is adapted from the example code from the online Flask documentation.
 
