@@ -6,9 +6,10 @@ serial connection is used from the arduino to the Raspberry Pi.
 
 The python file (app.py) is adapted from the example code from the online Flask documentation.
 
-You should make a subfolder in your root directory and put the app.py file in there.
-Put the "index.html" and "login.html" files in a "templates" subfolder.  Put the "style.css" file in a "static"
-subfolder.  So your directory tree should look like this (in this example the root subfolder is called "web-server"):
+Make sure you change the default password on your RPi to deter unauthorized access to the web files.  You may want to change
+the default user name as well.
+
+Make a subfolder in your root directory and put the app.py file in there.  Put the "index.html" and "login.html" files in a "templates" subfolder.  Put the "style.css" file in a "static" subfolder.  So your directory tree should look like this (in this example the root subfolder is called "web-server"):
 
 web-server
 - app.py
