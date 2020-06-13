@@ -22,7 +22,7 @@ thread = None
 thread_lock = Lock()
 
 mail_settings = {
-    "MAIL_SERVER": 'smtp.siteprotect.com',  # Note: put your email server site here
+    "MAIL_SERVER": os.environ['EMAIL_SERVER'],
     "MAIL_PORT": 587,
     "MAIL_USE_TLS": True,
     "MAIL_USE_SSL": False,
