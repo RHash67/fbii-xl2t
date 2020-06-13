@@ -25,6 +25,8 @@ code.  I did this so if you copy the app.py code or share it with someone, your 
 be included with the code.  You'll need to set the environment variables in the .bashrc file which the app.py references.
 To do this, edit the .bashrc file in your root directory, and add the following lines:
 
+export EMAIL_SERVER=*youremailserver*  (the is the email server that the alarm notification will originate from)
+
 export EMAIL_USER=*youremailusername*  (this is the email account user name that the alarm notification will originate from)
 
 export EMAIL_PASSWORD=*youremailpassword*
@@ -39,8 +41,7 @@ Replace the italicized text with your information.  For example, if your email a
 the first line would be:
 export EMAIL_USER=johndoe@mysite.com
 
-You will need to enter your email server site in the mail settings area of the app.py file.  You may also have to change
-the security settings (port, TLS, etc) to suit your particular email account server.
+You may also have to change the security settings (port, TLS, etc) to suit your particular email account server in the mail settings area of the app.py file.
 
 After changing the .bashrc file, you will need to reboot the Raspberry Pi to activate the variables.
 
