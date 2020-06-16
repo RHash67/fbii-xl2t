@@ -70,3 +70,5 @@ need to set port forwarding in your router.  You should be greeted with the inte
 password (which you set in the "XL2T" environment variables), and that should bring you to the alarm interface screen.  Note
 that the user name and password are case-sensitive.
 
+For the web interface testing I used the "Interface_simulation.ino" sketch in the arduino folder in order to avoid having to connect the actual alarm system.  The web interface files/procedure described above is for a Flask setup.  My understanding is that Flask is intended as a development tool, rather than use as a "real" production-type server.  I am trying to deploy the interface to a Gunicorn/nginx platform - if I am successful I will post the config files.
+
