@@ -55,7 +55,7 @@ You will also need to install the following packages:
 - apt-get install python-all-dev
 - pip install greenlet
 - apt-get install libffi6 libffi-dev
-- pip install gevent-websocket  [this one may take awhile to install]
+- pip install gevent-websocket  [this one may take awhile to install - be patient and just wait for it to complete]
 - pip install pyserial
 
 You will need to enable serial communication in the "sudo raspi-config" option.
