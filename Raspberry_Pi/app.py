@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from threading import Lock
 from flask import Flask, render_template, request, flash, redirect, \
     session, abort
@@ -13,7 +13,7 @@ import time
 # the best option based on installed packages.
 async_mode = None
 
-port = serial.Serial(port='/dev/serial0', baudrate=38400, timeout=1.0)
+port = serial.Serial(port='/dev/serial0', baudrate=38400, timeout=0.5)
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
@@ -45,6 +45,7 @@ def background_thread():  # This function runs on connection to client
         port.reset_input_buffer()
         port.reset_output_buffer()
         port.write('@'.encode())
+        rcv=' '
         rcv=port.read(size=5)
         valdict=parse_data(rcv)
         if (valdict["buzzer"] == "1") and (prevbuzzer == "0"):
@@ -66,7 +67,7 @@ def background_thread():  # This function runs on connection to client
         socketio.emit('my_response', valdict, namespace='/test')
 
 def parse_data(data):  # this function sets the individual indicator colors based on the alarm status bytes
-    if data == '\x00\x00\x00\x00\x00':  # no data received
+    if (data == '\x00\x00\x00\x00\x00') or (len(data) < 4):  # no or invalid data received
         data = "32768"
     dataint=int(data)
     tmpdict = {"buzzer": "0", "alarm": "#000000"}
