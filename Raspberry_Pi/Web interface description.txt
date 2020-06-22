@@ -1,4 +1,5 @@
-A login screen will appear when visiting the website.  User name and password are case-sensitive.  If you have previously logged in from a previous session on the same device, you will bypass the login screen and be taken directly to the keypad interface screen.
+A login screen will appear when visiting the website.  User name and password are case-sensitive.  If you have previously logged in from
+a previous session on the same device, you will bypass the login screen and be taken directly to the keypad interface screen.
 
 Upon logging onto the website, a screen will appear which simulates an FBII XL4600SM keypad.  The indicators correspond
 to the keypad status LEDs.  Pressing the keypad buttons will send the corresponding keypress to the alarm system.
