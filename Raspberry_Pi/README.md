@@ -59,7 +59,7 @@ You will also need to install the following packages:
 
 You can use the corresponding Python 2 packages instead of the Python 3 packages listed above - however, using the Python 3 packages will set up your RPi to use an nginx/Gunicorn based server if you decide to move to that setup (I have found during my testing that Gunicorn does not work with the Python 2 packages).
 
-You will need to enable serial communication in the "sudo raspi-config" option.
+You will need to enable serial communication in the "sudo raspi-config" interfacing options.  The 2nd question in the serial configuration selection is for the serial port.  I'm not sure what the 1st option (login shell over serial) does - I always enter "no" for that option.
 
 After you've done the above, go to your subdirectory and type in "python3 app.py" at the command prompt.  If all goes well,
 you should see the app run messages (restarting with stat, debugger active, and debugger PIN), and no error messages.  This
@@ -71,5 +71,5 @@ need to set port forwarding in your router.  You should be greeted with the inte
 password (which you set in the "XL2T" environment variables), and that should bring you to the alarm interface screen.  Note
 that the user name and password are case-sensitive.
 
-For the web interface testing I used the "Interface_simulation.ino" sketch in the arduino folder in order to avoid having to connect the actual alarm system.  The web interface files/procedure described above is for a Flask setup.  My understanding is that Flask is intended as a development tool, rather than use as a "real" production-type server.  I am trying to deploy the interface to a Gunicorn/nginx platform - if I am successful I will post the config files.
+For the web interface testing I used the "Interface_simulation.ino" sketch in the arduino folder in order to avoid having to connect the actual alarm system.
 
