@@ -1,0 +1,18 @@
+[Unit]
+Description=gunicorn daemon for /var/www/html/XL2T.py
+After=network.target
+
+[Service]
+User=pi
+Group=sudo
+RuntimeDirectory=gunicorn
+WorkingDirectory=/var/www/html/
+# ExecStart=/usr/local/bin/gunicorn --bind=unix:/tmp/gunicorn.sock --workers=4 --threads=4 XL2T:app
+ExecStart=/usr/local/bin/gunicorn --bind=unix:/tmp/gunicorn.sock -k geventwebsocket.gunicorn.workers.GeventWebSocketWorker  --workers=1 XL2T:app
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+
+EnvironmentFile=/var/envvar
+
+[Install]
+WantedBy=multi-user.target

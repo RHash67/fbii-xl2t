@@ -1,0 +1,6 @@
+EMAIL_USER=#your_emailuser_account
+EMAIL_PASSWORD=#your_email_password
+EMAIL_SERVER=#your_email_server
+EMAIL_ADDRESS=#email_address_for_notification
+XL2T_PW=#web_interface_login_password
+XL2T_USER=#web_interface_login_username
