@@ -6,3 +6,4 @@ to the keypad status LEDs.  Pressing the keypad buttons will send the correspond
 If the alarm system goes into alarm, the "SYSTEM ALARM" indicator will light, and an email alert will be sent to the designated
 recipient.  Two emails are sent for redundancy.  Cellphone text message alerts are possible by using the appropriate
 cell carrier email-to-text format.
+
